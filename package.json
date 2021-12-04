@@ -1,0 +1,27 @@
+{
+  "name": "workout-tracker",
+  "version": "1.0.0",
+  "description": "![license](https://img.shields.io/github/license/EllaFerreira/Note-Taker) ![Inquirer](https://img.shields.io/badge/Package-Dotenv-purple.svg) ![MySQL](https://img.shields.io/badge/AppWith-MySQL-blue.svg) ![Nodejs](https://img.shields.io/badge/AppWith-NodeJS-green.svg) ![Express](https://img.shields.io/badge/AppWith-ExpressJS-orange.svg) ![Sequelize](https://img.shields.io/badge/Package-Sequelize-magenta..svg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeders/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EllaFerreira/Workout-Tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EllaFerreira/Workout-Tracker/issues"
+  },
+  "homepage": "https://github.com/EllaFerreira/Workout-Tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.14",
+    "morgan": "^1.10.0"
+  }
+}
