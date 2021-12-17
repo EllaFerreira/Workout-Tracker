@@ -11,12 +11,9 @@
 
 Tech Blog is an app which follow the Model View Controller paradigm, using MySQL as db, express-handlebars to implement handlebars for views and sequelize to connect sql to models.
 
-**Note:**
+## Deploy Link
 
-
-## Mock up
-
-![mockup]()
+[Deploy Link](https://fit-tracker1234.herokuapp.com/)
 
 ## Content
 
@@ -49,17 +46,16 @@ View the total duration of each workout from the past seven workouts on the stat
 - JavaScript;
 - Handlebars;
 - dotenb and bycrypt package;
-- Mysql2 npm package;
-- Sequelize;
+- MongoDB - db;
+- Bootstrap.
 
 ## Sources
 
 - [Express](https://expressjs.com/en/starter/hello-world.html)
-- [MySQL2](https://www.npmjs.com/package/mysql2)
 - [Handlebars](https://www.npmjs.com/package/express-handlebars)
 
 ## Project Creator
 
 [EllaFerreira](https://github.com/EllaFerreira)
 
-© 2021 Team Profile Generator. All rights reserved
+© 2021 Workout Tracker. All rights reserved
