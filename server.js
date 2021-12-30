@@ -1,26 +1,34 @@
+require("dotenv").config();
+require("./config/connection");
 const express = require("express");
-const logger = require("morgan");
 const mongoose = require("mongoose");
-const compression = require("compression");
+const logger = require("morgan");
+const routes = require("./controllers");
 const path = require("path");
-const routes = require("./controller");
-const bodyParser = require("body-parser");
-
-//Initialize DB
-
-require("./config/connection")();
-
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
+const db = require("./models");
 const app = express();
 
+app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
-
-app.use(logger("dev"));
-app.use(compression());
 app.use(routes);
 
+// mongoose.connect(
+//   process.env.MONGODB_URI || "mongodb://localhost/tracker'",
+//   {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//   }
+// );
+// const connection = mongoose.connection;
+// connection.once("open", () => {
+//   console.log("MongoDB database connection established successfully");
+// });
+
 app.listen(PORT, () => {
-  console.log(`App launch on port ${PORT} 🚀`);
+  console.log(`App listening on ${PORT}.`);
 });
