@@ -1,3 +1,8 @@
-module.exports = {
-  Workout: require("./Workout"),
-};
+const Workout = require('./Workout')
+
+
+const models = {
+  Workout,
+}
+
+module.exports = models;
