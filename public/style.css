@@ -17,7 +17,7 @@ body {
 }
 
 nav {
-  background-color: #5793fd;
+  background-color: #ff5722;
   color: #ffffff;
   padding: 24px;
   line-height: 3;
@@ -375,9 +375,7 @@ form > button {
   margin-bottom: 5px;
 }
 
-/* .workout .card {
-  width: 350px;
-} */
+
 
 .prev-workout button {
   margin: 10px;
