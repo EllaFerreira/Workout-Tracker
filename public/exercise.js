@@ -16,8 +16,8 @@ const newWorkout = document.querySelector(".new-workout");
 
 let workoutType = null;
 let shouldNavigateAway = false;
-
 async function initExercise() {
+  console.log('running exercise')
   let workout;
 
   if (location.search.split("=")[1] === undefined) {
