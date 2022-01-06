@@ -1,5 +1,5 @@
 require("dotenv").config();
-require("./config/connection");
+const connection = require("./config/connection");
 const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
@@ -7,6 +7,7 @@ const compression = require('compression');
 const routes = require("./controllers");
 const path = require("path");
 
+connection();
 
 const PORT = process.env.PORT || 3000;
 const app = express();

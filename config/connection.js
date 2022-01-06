@@ -2,9 +2,12 @@ const { connect, connection } = require("mongoose");
 const { config } = require("dotenv");
 
 module.exports = () => {
-  config(); //invoking the dotenv config here
+  config({
+    path: __dirname + '/../.env'
+  }); //invoking the dotenv config here
   const uri = process.env.MONGODB_URI;
 
+  console.log('uri is', uri);
   connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
