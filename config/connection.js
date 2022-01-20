@@ -3,15 +3,15 @@ const { config } = require("dotenv");
 
 module.exports = () => {
   config({
-    path: __dirname + '/../.env'
+    path: __dirname + "/../.env",
   }); //invoking the dotenv config here
   const uri = process.env.MONGODB_URI;
 
-  console.log('uri is', uri);
+  // console.log("uri is", uri);
   connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    // useFindAndModify: false,
+    useFindAndModify: false,
     useCreateIndex: true,
   })
     .then(() => {

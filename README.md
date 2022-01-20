@@ -13,7 +13,7 @@ Tech Blog is an app which follow the Model View Controller paradigm, using MySQL
 
 ## Deploy Link
 
-[Deploy Link](https://fit-tracker1234.herokuapp.com/)
+[Click here](https://fit-tracker1234.herokuapp.com/)
 
 ## Content
 
