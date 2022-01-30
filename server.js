@@ -1,13 +1,16 @@
-require("dotenv").config();
-require("./config/connection")();
 const express = require("express");
-const mongoose = require("mongoose");
 const logger = require("morgan");
+const mongoose = require("mongoose");
 const compression = require("compression");
-const routes = require("./controllers/index");
 const path = require("path");
+const routes = require("./controller");
+const bodyParser = require("body-parser");
 
-const PORT = process.env.PORT || 3000;
+//Initialize DB
+
+require("./config/connection")();
+
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -19,5 +22,5 @@ app.use(compression());
 app.use(routes);
 
 app.listen(PORT, () => {
-  console.log(`App listening on ${PORT}.`);
+  console.log(`App running on port ${PORT}!`);
 });

@@ -7,7 +7,6 @@ module.exports = () => {
   }); //invoking the dotenv config here
   const uri = process.env.MONGODB_URI;
 
-  // console.log("uri is", uri);
   connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
