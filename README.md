@@ -1,4 +1,4 @@
-# Workout-Tracker 📱 🏋🏼‍♀️
+# Workout-Tracker 📱 🏋🏼‍♀️ 
 
 ![license](https://img.shields.io/github/license/EllaFerreira/Workout-Tracker)
 ![Mongoose](https://img.shields.io/badge/Package-Mongoose-green.svg)
@@ -9,7 +9,7 @@
 
 ## About this Project
 
-Tech Blog is an app which follow the Model View Controller paradigm, using MySQL as db, express-handlebars to implement handlebars for views and sequelize to connect sql to models.
+This app is a workout tracker which is very helpful in these days of lockdown, the user will be able to search for an exercise type and he will be surprise with a full range of them. The user will be able to add their own exercise and create a list for the day.
 
 ## Deploy Link
 
@@ -45,9 +45,9 @@ View the total duration of each workout from the past seven workouts on the stat
 - Node/Express js - backend;
 - JavaScript;
 - Handlebars;
-- dotenb and bycrypt package;
+- dotenv package;
 - MongoDB - db;
-- Bootstrap.
+- Morgan -middleware
 
 ## Sources
 

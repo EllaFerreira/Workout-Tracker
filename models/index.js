@@ -1,8 +1,8 @@
-const Workout = require('./Workout')
+const Workout = require('./workout')
 
 
-const models = {
+const Models = {
   Workout,
 }
 
-module.exports = models;
+module.exports = Models;

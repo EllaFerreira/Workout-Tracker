@@ -1,26 +1,48 @@
-const express = require("express");
-const logger = require("morgan");
-const mongoose = require("mongoose");
-const compression = require("compression");
+const dotenv = require("dotenv");
+dotenv.config();
 const path = require("path");
-const routes = require("./controller");
-const bodyParser = require("body-parser");
+const express = require("express");
+const controllers = require("./controllers");
+const Logger = require("./libs/logger");
+const configuredMorgan = require("./config/morgan");
+const mongoose = require("mongoose");
+const hbs = require("express-handlebars");
 
-//Initialize DB
-
-require("./config/connection")();
-
-const PORT = process.env.PORT || 3001;
 const app = express();
+const PORT = process.env.PORT || 3001;
+const db_url = process.env.MONGODB_URL;
 
-app.use(express.urlencoded({ extended: true }));
+// setup handlebars
+app.engine(
+  "hbs",
+  hbs({ layoutsDir: __dirname + "/views/layouts", extname: "hbs" })
+);
+app.set("view engine", "hbs");
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(logger("dev"));
-app.use(compression());
-app.use(routes);
+// must tell app to use morgan middleware before importing the controllers
+app.use(configuredMorgan);
+// use me once the app knows to use morgan on controllers
+app.use(controllers);
 
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
-});
+// DATABASE CONNECTION
+const connectionParams = {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+};
+
+mongoose
+  .connect(db_url, connectionParams)
+  .then(() => {
+    Logger.info(`Connected to database @ fonyxops.uvvp5.mongodb.net`);
+    app.listen(PORT, () => {
+      Logger.info("Server is running http://localhost:" + PORT);
+    });
+  })
+  .catch((err) => {
+    Logger.error(`Error connecting to the database. \n${err}`);
+  });

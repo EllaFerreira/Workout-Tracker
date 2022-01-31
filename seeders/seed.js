@@ -1,11 +1,25 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-mongoose.connect("mongodb://localhost/workout-tracker", {
+const dotenv = require("dotenv");
+dotenv.config();
+const db_url = process.env.MONGODB_URL;
+const Logger = require("../libs/logger");
+
+const connectionParams = {
   useNewUrlParser: true,
-  useFindAndModify: false,
+  useCreateIndex: true,
   useUnifiedTopology: true,
-});
+};
+
+mongoose
+  .connect(db_url, connectionParams)
+  .then(() => {
+    Logger.info(`Connected to database @ FirstTracker.uvvp5.mongodb.net`);
+  })
+  .catch((err) => {
+    Logger.error(`Error connecting to the database. \n${err}`);
+  });
 
 const workoutSeed = [
   {
@@ -128,10 +142,10 @@ const workoutSeed = [
 db.Workout.deleteMany({})
   .then(() => db.Workout.collection.insertMany(workoutSeed))
   .then((data) => {
-    console.log(data.result?.n + " records inserted!");
+    Logger.info(data.result.n + " records inserted!");
     process.exit(0);
   })
   .catch((err) => {
-    console.error(err);
+    Logger.error(err);
     process.exit(1);
   });
